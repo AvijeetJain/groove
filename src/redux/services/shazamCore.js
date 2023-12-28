@@ -14,12 +14,18 @@ export const shazamApi = createApi({
         getCharts: builder.query({
             query: () => `/charts/track`,
         }),
-        getSongDetails: builder.query({ query: (songid) => `/tracks/details?key_id=${songid}` }),
+        getSongDetails: builder.query({ 
+            query: (songid) => `/songs/get-details?key=${songid}` 
+        }),
+        getSongRelated: builder.query({
+            query: (songid) => `/songs/shazam-songs/list-similarities?key=${songid}`
+        }),
         
     }),
 });
-    
+
 export const { 
     useGetChartsQuery,
-    getSongDetailsQuery 
+    useGetSongDetailsQuery,
+    useGetSongRelatedQuery,
 } = shazamApi;
