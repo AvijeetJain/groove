@@ -7,16 +7,16 @@ import { useGetSongDetailsQuery, useGetSongRelatedQuery } from "../redux/service
 
 const SongDetails = () => {
     const dispatch = useDispatch();
-    const { songid } = useParams();
+    const { songid, id: artistId } = useParams();
     const { activeSong, isPlaying } = useSelector((state) => state.player);
     const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery( songid );
     const { data, isFetching: isFetchingRelatedSongs, error } = useGetSongRelatedQuery( songid );
 
-    console.log(data);
-    console.log(songData);
+    // console.log(data);
+    // console.log(songData);
     // console.log(artistId);
-    // if (isFetchingSongDetails) return <Loader title={"Searching Song Details"}/>;
-    // if (error) return <Error />;
+    if (isFetchingSongDetails) return <Loader title={"Searching Song Details"}/>;
+    if (error) return <Error />;
 
     const handlePauseClick = () => {
         dispatch(playPause(false));
@@ -29,7 +29,7 @@ const SongDetails = () => {
 
     return (
         <div className="flex flex-col">
-            <DetailsHeader artistId="" songData={songData} />
+            <DetailsHeader artistId={artistId} songData={songData} />
 
             <div className="mb-10">
                 <h2 className="text-white text-3xl font-bold">
