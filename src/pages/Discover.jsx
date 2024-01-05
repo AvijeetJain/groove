@@ -9,8 +9,6 @@ const Discover = () => {
     const { data, isFetching, error } = useGetChartsQuery();
     const genreTitle="Pop";
 
-    const allSongs = data?.tracks;
-
     if(isFetching) return <Loader title="Loading Songs ... "/>;
     if(error) return <Error title="Something went wrong" />;
 
@@ -35,7 +33,7 @@ const Discover = () => {
 
             <div className="flex flex-wrap sm:justify-start justify-center gap-8">
                 {
-                    allSongs?.map((song, i) => (
+                    data?.tracks?.map((song, i) => (
                         <SongCard 
                             key = {song.key}
                             song = {song}
