@@ -27,7 +27,7 @@ Groove is a React project that offers a diverse musical experience using the Sha
 
 ## Usage
 
-- Visit the [live demo](#) to experience Groove.
+- Visit the [live demo](https://groove2.netlify.app/) to experience Groove.
 - Explore top charts, find music around you, discover top artists, and more.
 - Access detailed song information, lyrics, artist details, and top albums seamlessly.
 
